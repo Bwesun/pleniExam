@@ -15,7 +15,7 @@ import {
   IonSpinner,
 } from '@ionic/react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -25,14 +25,14 @@ const Login: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
 
   const { login, user } = useAuth();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   React.useEffect(() => {
     if (user) {
       const dashboardRoute = `/${user.role}/dashboard`;
-      navigate(dashboardRoute, { replace: true });
+      history.replace(dashboardRoute);
     }
-  }, [user, navigate]);
+  }, [user, history]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -17,7 +17,7 @@ import {
   IonSelectOption,
 } from '@ionic/react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Register: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -34,14 +34,14 @@ const Register: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
 
   const { register, user } = useAuth();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   React.useEffect(() => {
     if (user) {
       const dashboardRoute = `/${user.role}/dashboard`;
-      navigate(dashboardRoute, { replace: true });
+      history.replace(dashboardRoute);
     }
-  }, [user, navigate]);
+  }, [user, history]);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();

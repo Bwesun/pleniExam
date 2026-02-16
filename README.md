@@ -48,6 +48,7 @@ PleniExam is a full-stack web application designed to manage examinations for ed
 
 ### Frontend
 - **Framework**: Ionic React
+- **Build Tool**: Vite
 - **Language**: TypeScript
 - **Routing**: React Router
 - **HTTP Client**: Axios
@@ -112,10 +113,11 @@ npm install
 cp .env.example .env
 
 # Update .env with backend URL
-# REACT_APP_API_URL=http://localhost:5000/api
+# VITE_API_URL=http://localhost:5000/api
+# VITE_API_BASE_URL=http://localhost:5000
 
 # Run the frontend
-npm start
+npm run dev
 ```
 
 The frontend will start on `http://localhost:3000`
@@ -261,7 +263,7 @@ npm test
 ### Frontend Deployment
 1. Build the production version: `npm run build`
 2. Deploy the `build` folder to hosting service (Netlify, Vercel, AWS S3, etc.)
-3. Update `REACT_APP_API_URL` to production backend URL
+3. Update `VITE_API_URL` to production backend URL
 
 ## Development Guidelines
 
@@ -279,7 +281,7 @@ npm test
 - **JWT Errors**: Verify JWT_SECRET is set in environment variables
 
 ### Frontend Issues
-- **API Connection**: Check REACT_APP_API_URL in .env
+- **API Connection**: Check VITE_API_URL in .env
 - **CORS Errors**: Ensure backend CORS is properly configured
 - **Build Errors**: Clear node_modules and reinstall dependencies
 
