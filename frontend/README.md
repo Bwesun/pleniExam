@@ -32,6 +32,7 @@ Frontend application for PleniExam - A comprehensive examination management syst
 ## Tech Stack
 
 - **Framework**: Ionic React
+- **Build Tool**: Vite
 - **Language**: TypeScript
 - **Routing**: React Router
 - **HTTP Client**: Axios
@@ -62,14 +63,17 @@ cp .env.example .env
 
 4. Update the `.env` file with your backend API URL:
 ```env
-REACT_APP_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:5000
 ```
+
+See `.env.example` for all available environment variables.
 
 ## Running the Application
 
 ### Development Mode:
 ```bash
-npm start
+npm run dev
 ```
 
 The application will start on `http://localhost:3000`
@@ -79,9 +83,14 @@ The application will start on `http://localhost:3000`
 npm run build
 ```
 
-### Run Tests:
+### Preview Production Build:
 ```bash
-npm test
+npm run preview
+```
+
+### Lint Code:
+```bash
+npm run lint
 ```
 
 ## Project Structure
@@ -171,7 +180,7 @@ The application uses Ionic's built-in CSS utilities and components for a consist
 
 ## Development Tips
 
-1. **Hot Reload**: The development server supports hot reloading for quick development.
+1. **Hot Module Replacement (HMR)**: Vite provides instant HMR for rapid development.
 
 2. **Component Development**: Use Ionic components for consistent UI/UX across devices.
 
@@ -181,9 +190,25 @@ The application uses Ionic's built-in CSS utilities and components for a consist
 
 5. **Loading States**: Always show loading indicators for async operations.
 
+6. **Environment Variables**: Access environment variables using `import.meta.env.VITE_*` instead of `process.env.REACT_APP_*`.
+
 ## Environment Variables
 
-- `REACT_APP_API_URL`: Backend API base URL (default: http://localhost:5000/api)
+All environment variables must be prefixed with `VITE_` to be accessible in the application:
+
+- `VITE_API_URL`: Backend API base URL (default: http://localhost:5000/api)
+- `VITE_API_BASE_URL`: Backend base URL (default: http://localhost:5000)
+- `VITE_APP_NAME`: Application name (default: PleniExam)
+- `VITE_APP_VERSION`: Application version (default: 1.0.0)
+- `VITE_TOKEN_KEY`: LocalStorage key for access token (default: pleniexam_token)
+- `VITE_REFRESH_TOKEN_KEY`: LocalStorage key for refresh token (default: pleniexam_refresh_token)
+- `VITE_USER_KEY`: LocalStorage key for user data (default: pleniexam_user)
+- `VITE_DEFAULT_EXAM_DURATION`: Default exam duration in minutes (default: 60)
+- `VITE_AUTO_SAVE_INTERVAL`: Auto-save interval in milliseconds (default: 30000)
+- `VITE_ITEMS_PER_PAGE`: Pagination page size (default: 10)
+- `VITE_ENABLE_DARK_MODE`: Enable dark mode support (default: true)
+- `VITE_ENABLE_NOTIFICATIONS`: Enable notifications (default: true)
+- `VITE_ENABLE_ANALYTICS`: Enable analytics (default: false)
 
 ## Browser Support
 
