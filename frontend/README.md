@@ -39,7 +39,7 @@ Frontend application for PleniExam - A comprehensive examination management syst
 - **State Management**: React Context API
 - **UI Components**: Ionic Components
 
-**Dependency Note**: This project uses React Router v5 because `@ionic/react-router@^7.x` and `@ionic/react-router@^8.x` both require React Router v5. Upgrading to React Router v6 will cause peer dependency conflicts until Ionic releases a compatible version.
+**Dependency Note**: This project uses React Router v5 because current versions of `@ionic/react-router` (including versions 7.x and 8.x) require React Router v5. Upgrading to React Router v6 will cause peer dependency conflicts until Ionic releases a compatible version.
 
 ## Prerequisites
 
