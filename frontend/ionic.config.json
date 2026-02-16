@@ -1,0 +1,7 @@
+{
+  "name": "pleniexam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
