@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Loading from '../common/Loading';
 
@@ -16,13 +16,13 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, allowedRoles }) =
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Redirect to="/login" />;
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
     // Redirect to appropriate dashboard based on role
     const dashboardRoute = `/${user.role}/dashboard`;
-    return <Navigate to={dashboardRoute} replace />;
+    return <Redirect to={dashboardRoute} />;
   }
 
   return children;
