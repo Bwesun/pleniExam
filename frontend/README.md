@@ -34,15 +34,19 @@ Frontend application for PleniExam - A comprehensive examination management syst
 - **Framework**: Ionic React
 - **Build Tool**: Vite
 - **Language**: TypeScript
-- **Routing**: React Router
+- **Routing**: React Router v5 (required by @ionic/react-router)
 - **HTTP Client**: Axios
 - **State Management**: React Context API
 - **UI Components**: Ionic Components
 
+**Dependency Note**: This project uses React Router v5 because current versions of `@ionic/react-router` (including versions 7.x and 8.x) require React Router v5. Upgrading to React Router v6 will cause peer dependency conflicts until Ionic releases a compatible version.
+
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+
+**Important:** This project uses React Router v5 due to Ionic React Router compatibility requirements. Do not upgrade to React Router v6.
 
 ## Installation
 
@@ -55,6 +59,8 @@ cd frontend
 ```bash
 npm install
 ```
+
+**Note:** If you encounter an `ERESOLVE` error about React Router dependencies, ensure you have the latest `package.json` from the repository. The project uses React Router v5 (not v6) due to `@ionic/react-router` compatibility requirements. The `overrides` field in `package.json` ensures the correct version is installed.
 
 3. Create environment file:
 ```bash

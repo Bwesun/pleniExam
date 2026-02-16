@@ -6,9 +6,9 @@ Complete step-by-step guide to set up and run the PleniExam application.
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
+- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
+- **npm** (v9 or higher) - Comes with Node.js
 - **MongoDB** (v4.4 or higher) - [Download](https://www.mongodb.com/try/download/community)
-- **npm** or **yarn** - Comes with Node.js
 - **Git** - [Download](https://git-scm.com/)
 
 ## Quick Start
@@ -261,6 +261,32 @@ pleniExam/
 1. Clear browser local storage
 2. Logout and login again
 3. Check JWT_SECRET in backend `.env`
+
+### Issue: React Router Dependency Conflict
+
+**Error:** `ERESOLVE could not resolve` or `peer react-router@"^5.0.1"` conflict
+
+**Cause:** The frontend uses `@ionic/react-router@^7.8.0` which requires React Router v5, not v6.
+
+**Solutions:**
+1. Ensure you're using the correct package.json versions:
+   - `react-router-dom@5.3.4` (NOT v6.x)
+   - The project has overrides configured to prevent v6 upgrades
+
+2. If you still see the error, delete lock file and reinstall:
+   ```bash
+   cd frontend
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+
+3. Verify the installed versions:
+   ```bash
+   npm list react-router react-router-dom
+   ```
+   Should show version 5.3.4 for both packages.
+
+**Note:** Do not upgrade to React Router v6 until Ionic React Router adds support for it.
 
 ### Issue: Frontend Build Error
 
